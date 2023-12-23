@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotidaishe - God Loves Us</title>
+</head>
+<body>
+    <header>
+        <h1>Anotidaishe</h1>
+        <p>God Loves Us</p>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to Anotidaishe</h2>
+            <p>Spreading the message of God's love to the world.</p>
+        </section>
+        <section id="dailyMessage">
+            <h2>Today's Message</h2>
+            <p id="messageContent">Loading...</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Anotidaishe. All rights reserved.</p>
+    </footer>
+    <script>
+        function updateMessage() {
+            var now = new Date();
+            var hour = now.getHours();
+
+            if (hour < 12) {
+                document.getElementById('messageContent').innerHTML = "Good morning! Your morning message here.";
+            } else if (hour < 18) {
+                document.getElementById('messageContent').innerHTML = "Good afternoon! Your afternoon message here.";
+            } else {
+                document.getElementById('messageContent').innerHTML = "Good evening! Your evening message here.";
+            }
+        }
+
+        window.onload = function() {
+            updateMessage();
+            setInterval(updateMessage, 24 * 60 * 60 * 1000);
+        };
+    </script>
+</body>
+</html>
