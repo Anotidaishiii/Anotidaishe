@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anotidaishe - God Loves Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px;
+        }
+
+        h1, h2 {
+            margin-bottom: 5px;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -28,6 +64,7 @@
             var now = new Date();
             var hour = now.getHours();
 
+            // Customize the messages based on the time
             if (hour < 12) {
                 document.getElementById('messageContent').innerHTML = "Good morning! Your morning message here.";
             } else if (hour < 18) {
@@ -37,8 +74,10 @@
             }
         }
 
+        // Call the updateMessage function when the page loads
         window.onload = function() {
             updateMessage();
+            // Update the message every 24 hours
             setInterval(updateMessage, 24 * 60 * 60 * 1000);
         };
     </script>
