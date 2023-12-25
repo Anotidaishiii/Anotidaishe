@@ -1,85 +1,130 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anotidaishe - God Loves Us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f8f8;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to right, #aedcf5, #87b5f9, #538cc6); /* Lighter gradient mix */
             color: #333;
             margin: 0;
             padding: 20px;
             text-align: center;
+            transition: background 0.3s ease;
         }
 
         header {
-            background-color: #0066cc;
-            color: white;
-            padding: 10px;
+            background: linear-gradient(to right, #87b5f9, #aedcf5, #87b5f9); /* Baby blue-centered gradient for header */
+            color: #fff; /* White text */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
-        h1, h2 {
-            margin-bottom: 5px;
+        h1 {
+            margin: 0;
+            font-family: 'Lobster', cursive; /* Cute font for the title */
+            font-size: 2.5em;
+            font-weight: normal; /* Less bold text */
+            color: #000; /* Black color for the heading name */
+        }
+
+        .simple-font {
+            font-family: 'Quicksand', sans-serif; /* Simple font for "God Loves Us" */
+            font-size: 1.8em;
+            color: #fff; /* White color for "God Loves Us" */
+            font-weight: normal;
+            letter-spacing: 2px; /* Increased letter spacing */
         }
 
         main {
             margin-top: 20px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
         section {
-            background-color: #fff;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6)); /* Slightly more visible white gradient feel */
+        }
+
+        /* Remove solid line from sections */
+        section:not(:first-child) {
+            border-top: none;
+        }
+
+        .glow {
+            position: absolute;
+            content: '';
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            border-radius: 10px;
+            background: radial-gradient(circle, transparent 0%, #ffffff 20%, transparent 100%);
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: -1;
         }
 
         footer {
             margin-top: 20px;
+            color: #777;
+        }
+
+        a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Add a subtle drop shadow to sections */
+        section {
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Customize appearance of "God Loves Us" */
+        header h1 {
+            font-size: 1.8em;
+            color: #000; /* Black color for Anotidaishe */
+            font-weight: normal;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Anotidaishe</h1>
-        <p>God Loves Us</p>
+        <p class="simple-font">God Loves Us</p>
     </header>
     <main>
         <section>
+            <div class="glow"></div>
             <h2>Welcome to Anotidaishe</h2>
             <p>Spreading the message of God's love to the world.</p>
         </section>
         <section id="dailyMessage">
+            <div class="glow"></div>
             <h2>Today's Message</h2>
             <p id="messageContent">Loading...</p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Anotidaishe. All rights reserved.</p>
-    </footer>
-    <script>
-        function updateMessage() {
-            var now = new Date();
-            var hour = now.getHours();
-
-            // Customize the messages based on the time
-            if (hour < 12) {
-                document.getElementById('messageContent').innerHTML = "Good morning! Your morning message here.";
-            } else if (hour < 18) {
-                document.getElementById('messageContent').innerHTML = "Good afternoon! Your afternoon message here.";
-            } else {
-                document.getElementById('messageContent').innerHTML = "Good evening! Your evening message here.";
-            }
-        }
-
-        // Call the updateMessage function when the page loads
-        window.onload = function() {
-            updateMessage();
-            // Update the message every 24 hours
-            setInterval(updateMessage, 24 * 60 * 60 * 1000);
-        };
-    </script>
-</body>
-</html>
+        <
