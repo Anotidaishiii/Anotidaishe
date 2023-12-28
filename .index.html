@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +6,11 @@
     <title>Anotidaishe - God Loves Us</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josef+Sans&display=swap">
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(to right, #aedcf5, #87b5f9, #538cc6); /* Lighter gradient mix */
+            background: linear-gradient(to right, #aedcf5, #87b5f9, #538cc6);
             color: #333;
             margin: 0;
             padding: 20px;
@@ -18,27 +19,57 @@
         }
 
         header {
-            background: linear-gradient(to right, #87b5f9, #aedcf5, #87b5f9); /* Baby blue-centered gradient for header */
-            color: #fff; /* White text */
-            padding: 15px;
+            background: linear-gradient(to right, #87b5f9, #aedcf5, #87b5f9);
+            color: #fff;
+            padding: 30px;
             border-radius: 10px;
             margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         h1 {
             margin: 0;
-            font-family: 'Lobster', cursive; /* Cute font for the title */
-            font-size: 2.5em;
-            font-weight: normal; /* Less bold text */
-            color: #000; /* Black color for the heading name */
+            font-family: 'Lobster', cursive;
+            font-size: 3em;
+            font-weight: normal;
+            color: #000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .ticker-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: tickerAnimation 60s linear infinite;
+        }
+
+        @keyframes tickerAnimation {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
         }
 
         .simple-font {
-            font-family: 'Quicksand', sans-serif; /* Simple font for "God Loves Us" */
+            font-family: 'Quicksand', sans-serif;
             font-size: 1.8em;
-            color: #fff; /* White color for "God Loves Us" */
+            color: #fff;
             font-weight: normal;
-            letter-spacing: 2px; /* Increased letter spacing */
+            letter-spacing: 2px;
         }
 
         main {
@@ -55,10 +86,10 @@
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6)); /* Slightly more visible white gradient feel */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
-        /* Remove solid line from sections */
         section:not(:first-child) {
             border-top: none;
         }
@@ -72,9 +103,40 @@
             bottom: -50px;
             border-radius: 10px;
             background: radial-gradient(circle, transparent 0%, #ffffff 20%, transparent 100%);
-            opacity: 0.7;
+            opacity: 0;
             pointer-events: none;
             z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .notice-board {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .arrow {
+            font-size: 2em;
+            cursor: pointer;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .share-button {
+            display: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button:hover {
+            background-color: #0056b3;
         }
 
         footer {
@@ -83,48 +145,100 @@
         }
 
         a {
-            color: #007bff; /* Blue link color */
+            color: #007bff;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #0056b3; /* Darker blue on hover */
-        }
-
-        /* Add a subtle drop shadow to sections */
-        section {
-            transition: box-shadow 0.3s ease;
+            color: #0056b3;
         }
 
         section:hover {
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
         }
 
-        /* Customize appearance of "God Loves Us" */
+        section:hover .glow {
+            opacity: 0.7;
+        }
+
         header h1 {
-            font-size: 1.8em;
-            color: #000; /* Black color for Anotidaishe */
+            font-size: 2.2em;
+            color: #000;
             font-weight: normal;
+        }
+
+        .share-button-ios {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button-ios:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Anotidaishe</h1>
-        <p class="simple-font">God Loves Us</p>
+        <div class="ticker-container">
+            <div class="ticker">
+                John 3:16 For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.
+            </div>
+        </div>
     </header>
     <main>
-        <section>
+        <section id="welcomePanel" onclick="togglePanels()" class="notice-board">
             <div class="glow"></div>
-            <h2>Welcome to Anotidaishe</h2>
-            <p>Spreading the message of God's love to the world.</p>
+            <h2>Notice Board<span class="notification-bell">🔔</span></h2>
+            <p>Hey, did you know that God loves you? You are wonderfully and fearfully made. It's important that you talk to Him. He knows, and He wants to talk to you. Tap to find out what GOD has to say for you today.</p>
         </section>
-        <section id="dailyMessage">
+        <section id="dailyMessage" style="display: none;">
             <div class="glow"></div>
             <h2>Today's Message</h2>
             <p id="messageContent">Loading...</p>
+            <div class="arrow" onclick="togglePanels()">⬅️</div>
+            <button class="share-button-ios" onclick="shareMessage()">Share</button>
         </section>
     </main>
     <footer>
-        <
+        <p>&copy; 2023 Anotidaishe. All rights reserved.</p>
+    </footer>
+    <script>
+        function togglePanels() {
+            var welcomePanel = document.getElementById('welcomePanel');
+            var dailyMessagePanel = document.getElementById('dailyMessage');
+
+            if (welcomePanel.style.display !== 'none') {
+                welcomePanel.style.display = 'none';
+                dailyMessagePanel.style.display = 'flex';
+            } else {
+                welcomePanel.style.display = 'flex';
+                dailyMessagePanel.style.display = 'none';
+            }
+        }
+
+        function shareMessage() {
+            var message = document.getElementById('messageContent').textContent;
+            var shareData = {
+                title: 'Anotidaishe - Today\'s Message',
+                text: message,
+                url: window.location.href,
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                alert('Sharing not supported on this device.');
+            }
+        }
+    </script>
+</body>
+</html>
