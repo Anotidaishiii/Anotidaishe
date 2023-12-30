@@ -88,10 +88,9 @@
             overflow: hidden;
             background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
             transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        section:not(:first-child) {
-            border-top: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .glow {
@@ -109,11 +108,16 @@
             transition: opacity 0.3s ease;
         }
 
-        .notice-board {
+        .attention-board {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
+        }
+
+        .attention-board:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
         }
 
         .arrow {
@@ -121,18 +125,19 @@
             cursor: pointer;
             position: absolute;
             bottom: 10px;
-            right: 10px;
+            left: 10px;
         }
 
         .share-button {
-            display: none;
             background-color: #007bff;
             color: #fff;
-            padding: 10px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-top: auto;
+            margin-bottom: 20px;
         }
 
         .share-button:hover {
@@ -190,22 +195,29 @@
         <h1>Anotidaishe</h1>
         <div class="ticker-container">
             <div class="ticker">
-                John 3:16 For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.
+                John 3:16 For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.    
+                John 15:13 Greater love has no one than this, than to lay down one's life for his friends.
             </div>
         </div>
     </header>
     <main>
-        <section id="welcomePanel" onclick="togglePanels()" class="notice-board">
+        <section id="welcomePanel" onclick="togglePanels()" class="attention-board">
             <div class="glow"></div>
-            <h2>Notice Board<span class="notification-bell">🔔</span></h2>
-            <p>Hey, did you know that God loves you? You are wonderfully and fearfully made. It's important that you talk to Him. He knows, and He wants to talk to you. Tap to find out what GOD has to say for you today.</p>
+            <h2>Attention<span class="notification-bell">🔔</span></h2>
+            <p>Hey, did you know that God loves you? You are wonderfully and fearfully made. It's important that you talk to Him. He knows, and He wants to talk to you. Tap to find out what GOD has to say for you today. 🌟✨</p>
+           
         </section>
         <section id="dailyMessage" style="display: none;">
+            <h2>Daily Divine Inspiration</h2>
             <div class="glow"></div>
-            <h2>Today's Message</h2>
-            <p id="messageContent">Loading...</p>
+            <p id="messageContent">🌟 Embrace Your Divine Purpose! 🌟<br><br>
+                Hey, amazing souls! 🌈 Just a quick reminder: you didn't just happen into this world – you were designed for a purpose. 🌍 Your journey is a beautiful quest to discover and know the Lord.<br><br>
+                
+                Hosea 6:3 inspires us to press on in our pursuit of Him. 🚀 His presence is as certain as the dawn and as refreshing as spring rains. Let's eagerly anticipate the showers of His love and the blessings that come when we seek Him.<br><br>
+                
+                You're not here by accident; you're here to intimately know the Lord. 🙏 So, press on, embrace the journey, and let His love light up your path. Your purpose is divine, and your future is filled with His abundant blessings! 🌺✨ #FaithJourney #DivinePurpose #BlessedLife.</p>
+            <button class="share-button" onclick="shareMessage()">Share</button>
             <div class="arrow" onclick="togglePanels()">⬅️</div>
-            <button class="share-button-ios" onclick="shareMessage()">Share</button>
         </section>
     </main>
     <footer>
